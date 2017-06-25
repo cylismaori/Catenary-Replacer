@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using CatenaryReplacer.OptionsFramework;
 using UnityEngine;
 
@@ -8,6 +7,8 @@ namespace CatenaryReplacer
 {
     //TODO(earalov): use more generic approach for replacing props
     //TODO(earalov): add support for more track types
+    //TODO(earalov): add offset for props when updating vanilla one-ways
+    //TODO(earalov): implement no-wire for vanilla one-ways
     public class Replacer : MonoBehaviour
     {
         /// <summary>
