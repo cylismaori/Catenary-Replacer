@@ -99,8 +99,6 @@ namespace CatenaryReplacer
             ReplaceLaneProp("Rail1L2W Tunnel", "724382534.Rail1LPowerLine_Data", singleReplacement);
             ReplaceLaneProp("Rail1L2SidedStation", "724382534.Rail1LPowerLine_Data", singleReplacement);
             ReplaceLaneProp("Rail1LStation", "724382534.Rail1LPowerLine_Data", singleReplacement);
-
-            Destroy(this.gameObject);
         }
 
         private void ReplaceCatenaries(string doubleReplacement, string singleReplacement)
