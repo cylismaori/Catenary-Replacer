@@ -7,23 +7,20 @@ namespace CatenaryReplacer
 {
     public class LoadingExtension : LoadingExtensionBase
     {
-        private const string GameObjectName = "CatenaryReplacer";
+        public static bool Ingame;
 
         public override void OnLevelLoaded(LoadMode mode)
         {
             base.OnLevelLoaded(mode);
-            new GameObject(GameObjectName).AddComponent<Replacer>();
+            Ingame = true;
+            ReplacementHandler.Replace(-1);
         }
 
         public override void OnLevelUnloading()
         {
             base.OnLevelUnloading();
-            var go = GameObject.Find(GameObjectName);
-
-            if (go != null)
-            {
-                Object.Destroy(go);
-            }
+            Ingame = false;
+            ReplacementHandler.Revert();
         }
     }
 }
