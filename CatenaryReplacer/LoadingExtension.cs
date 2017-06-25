@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using CatenaryReplacer.OptionsFramework;
-using ICities;
-using UnityEngine;
+﻿using ICities;
 
 namespace CatenaryReplacer
 {
