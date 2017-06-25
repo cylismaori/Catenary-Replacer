@@ -265,6 +265,7 @@ namespace CatenaryReplacer
 
                 laneProp.m_prop = state.originalProp;
                 laneProp.m_finalProp = state.originalProp;
+                laneProp.m_angle = state.originalAngle;
             }
             changes.Clear();
         }
