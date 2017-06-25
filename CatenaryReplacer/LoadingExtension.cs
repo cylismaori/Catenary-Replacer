@@ -13,7 +13,7 @@ namespace CatenaryReplacer
         {
             base.OnLevelLoaded(mode);
             Ingame = true;
-            ReplacementHandler.Replace(-1);
+            ReplacementHandler.Replace();
         }
 
         public override void OnLevelUnloading()

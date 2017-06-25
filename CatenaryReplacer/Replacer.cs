@@ -30,6 +30,10 @@ namespace CatenaryReplacer
         public void Awake()
         {
             var config = OptionsWrapper<CatenaryReplacerConfiguration>.Options;
+            if (!config.ReplacementEnabled)
+            {
+                return;
+            }
             var configStyle = (CatenaryStyle) config.Style;
             switch (configStyle)
             {

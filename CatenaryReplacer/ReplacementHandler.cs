@@ -6,7 +6,17 @@ namespace CatenaryReplacer
     {
         private const string GameObjectName = "CatenaryReplacer";
 
-        public static void Replace(int style) //arg not used
+        public static void ReplaceInt(int style) //arg not used
+        {
+            Replace();
+        }
+
+        public static void ReplaceBool(bool style) //arg not used
+        {
+            Replace();
+        }
+
+        public static void Replace()
         {
             Revert();
             new GameObject(GameObjectName).AddComponent<Replacer>();
