@@ -30,9 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CatenaryReplacer.cs" />
+    <Compile Include="CatenaryReplacerMod.cs" />
     <Compile Include="CatenaryReplacerConfiguration.cs" />
     <Compile Include="CatenaryStyle.cs" />
+    <Compile Include="LoadingExtension.cs" />
     <Compile Include="OptionsFramework\Attibutes\AbstractOptionsAttribute.cs" />
     <Compile Include="OptionsFramework\Attibutes\ButtonAttribute.cs" />
     <Compile Include="OptionsFramework\Attibutes\CheckboxAttribute.cs" />
@@ -48,6 +49,7 @@
     <Compile Include="OptionsFramework\OptionsWrapper.cs" />
     <Compile Include="OptionsFramework\Util.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Replacer.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Assembly-CSharp">

@@ -1,18 +1,12 @@
 ﻿using System.Collections;
-using ICities;
 using System.Collections.Generic;
 using CatenaryReplacer.OptionsFramework;
-using CatenaryReplacer.OptionsFramework.Extensions;
 using UnityEngine;
 
 namespace CatenaryReplacer
 {
-    public class CatenaryReplacerMod : LoadingExtensionBase, IUserMod
+    public class Replacer : MonoBehaviour
     {
-        private string[] styles = new string[] { "No Catenary", "Dutch A", "Dutch B", "German A", "PRR A", "PRR B", "Japan A" };
-
-        private GameObject go;
-
         /// <summary>
         /// Saves the changed lane prop state;
         /// </summary>
@@ -27,33 +21,16 @@ namespace CatenaryReplacer
             public PropInfo replacementProp;
         }
 
-        private static readonly List<ReplacementState> changes = new List<ReplacementState>();
+        private readonly List<ReplacementState> changes = new List<ReplacementState>();
 
-        public string Name
+
+        public string doubleReplacement;
+        public string singleReplacement;
+
+        public void Awake()
         {
-            get { return "Catenary Replacer"; }
-        }
-
-        public string Description
-        {
-            get { return "Replaces the catenaries on railroads with those of your choice"; }
-        }
-
-        public void OnSettingsUI(UIHelperBase helper)
-        {
-            helper.AddOptionsGroup<CatenaryReplacerConfiguration>();
-        }
-
-        public override void OnLevelLoaded(LoadMode mode)
-        {
-            base.OnLevelLoaded(mode);
-
-            changes.Clear();
-
             var config = OptionsWrapper<CatenaryReplacerConfiguration>.Options;
-
-
-            var configStyle = (CatenaryStyle)config.Style;
+            var configStyle = (CatenaryStyle) config.Style;
             switch (configStyle)
             {
                 case CatenaryStyle.None:
@@ -81,64 +58,55 @@ namespace CatenaryReplacer
                     break;
             }
         }
-        public override void OnLevelUnloading()
+
+        public void Start()
+        {
+            StartCoroutine(ExecuteAfterTime());
+        }
+
+        public void OnDestroy()
         {
             RevertLaneProps();
+        }
 
-            if (go != null) Object.Destroy(go);
+        private IEnumerator ExecuteAfterTime()
+        {
+            yield return new WaitForSeconds(0.1f);
+
+            ReplaceLaneProp("Train Track", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Cargo Track", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Track Bridge", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Track Elevated", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Track Tunnel", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Cargo Track Elevated", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Oneway Train Track", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Station Track Sunken", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Station Track (C)", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Station Track Elevated Narrow (C)", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Station Track Eleva", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Station Track Elevated (C)", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Station Track Elevated Narrow", "RailwayPowerline", doubleReplacement);
+
+            ReplaceLaneProp("Rail1L", "724382534.Rail1LPowerLine_Data", singleReplacement);
+            ReplaceLaneProp("Rail1L Slope", "RailwayPowerline", singleReplacement); //Depends on One-Way Tracks update
+            ReplaceLaneProp("Rail1L Elevated", "724382534.Rail1LPowerLine_Data", singleReplacement);
+            ReplaceLaneProp("Rail1L Bridge", "724382534.Rail1LPowerLine_Data", singleReplacement);
+            ReplaceLaneProp("Rail1L Tunnel", "724382534.Rail1LPowerLine_Data", singleReplacement);
+            ReplaceLaneProp("Rail1L2W", "724382534.Rail1LPowerLine_Data", singleReplacement);
+            ReplaceLaneProp("Rail1L2W Slope", "RailwayPowerline", singleReplacement); //Depends on One-Way Tracks update
+            ReplaceLaneProp("Rail1L2W Elevated", "724382534.Rail1LPowerLine_Data", singleReplacement);
+            ReplaceLaneProp("Rail1L2W Bridge", "724382534.Rail1LPowerLine_Data", singleReplacement);
+            ReplaceLaneProp("Rail1L2W Tunnel", "724382534.Rail1LPowerLine_Data", singleReplacement);
+            ReplaceLaneProp("Rail1L2SidedStation", "724382534.Rail1LPowerLine_Data", singleReplacement);
+            ReplaceLaneProp("Rail1LStation", "724382534.Rail1LPowerLine_Data", singleReplacement);
+
+            Destroy(this.gameObject);
         }
 
         private void ReplaceCatenaries(string doubleReplacement, string singleReplacement)
         {
-            go = new GameObject("CatenaryReplacer");
-            var replacer = go.AddComponent<Replacer>();
-            replacer.doubleReplacement = doubleReplacement;
-            replacer.singleReplacement = singleReplacement;
-        }
-
-        private class Replacer : MonoBehaviour
-        {
-            public string doubleReplacement;
-            public string singleReplacement;
-
-            public void Awake()
-            {
-                StartCoroutine(ExecuteAfterTime());
-            }
-
-            private IEnumerator ExecuteAfterTime()
-            {
-                yield return new WaitForSeconds(0.1f);
-
-                ReplaceLaneProp("Train Track", "RailwayPowerline", doubleReplacement);
-                ReplaceLaneProp("Train Cargo Track", "RailwayPowerline", doubleReplacement);
-                ReplaceLaneProp("Train Track Bridge", "RailwayPowerline", doubleReplacement);
-                ReplaceLaneProp("Train Track Elevated", "RailwayPowerline", doubleReplacement);
-                ReplaceLaneProp("Train Track Tunnel", "RailwayPowerline", doubleReplacement);
-                ReplaceLaneProp("Train Cargo Track Elevated", "RailwayPowerline", doubleReplacement);
-                ReplaceLaneProp("Oneway Train Track", "RailwayPowerline", doubleReplacement);
-                ReplaceLaneProp("Station Track Sunken", "RailwayPowerline", doubleReplacement);
-                ReplaceLaneProp("Train Station Track (C)", "RailwayPowerline", doubleReplacement);
-                ReplaceLaneProp("Station Track Elevated Narrow (C)", "RailwayPowerline", doubleReplacement);
-                ReplaceLaneProp("Station Track Eleva", "RailwayPowerline", doubleReplacement);
-                ReplaceLaneProp("Station Track Elevated (C)", "RailwayPowerline", doubleReplacement);
-                ReplaceLaneProp("Station Track Elevated Narrow", "RailwayPowerline", doubleReplacement);
-
-                ReplaceLaneProp("Rail1L", "724382534.Rail1LPowerLine_Data", singleReplacement);
-                ReplaceLaneProp("Rail1L Slope", "RailwayPowerline", singleReplacement); //Depends on One-Way Tracks update
-                ReplaceLaneProp("Rail1L Elevated", "724382534.Rail1LPowerLine_Data", singleReplacement);
-                ReplaceLaneProp("Rail1L Bridge", "724382534.Rail1LPowerLine_Data", singleReplacement);
-                ReplaceLaneProp("Rail1L Tunnel", "724382534.Rail1LPowerLine_Data", singleReplacement);
-                ReplaceLaneProp("Rail1L2W", "724382534.Rail1LPowerLine_Data", singleReplacement);
-                ReplaceLaneProp("Rail1L2W Slope", "RailwayPowerline", singleReplacement); //Depends on One-Way Tracks update
-                ReplaceLaneProp("Rail1L2W Elevated", "724382534.Rail1LPowerLine_Data", singleReplacement);
-                ReplaceLaneProp("Rail1L2W Bridge", "724382534.Rail1LPowerLine_Data", singleReplacement);
-                ReplaceLaneProp("Rail1L2W Tunnel", "724382534.Rail1LPowerLine_Data", singleReplacement);
-                ReplaceLaneProp("Rail1L2SidedStation", "724382534.Rail1LPowerLine_Data", singleReplacement);
-                ReplaceLaneProp("Rail1LStation", "724382534.Rail1LPowerLine_Data", singleReplacement);
-
-                Destroy(this.gameObject);
-            }
+            this.doubleReplacement = doubleReplacement;
+            this.singleReplacement = singleReplacement;
         }
 
         private void RemoveWires()
@@ -260,6 +228,7 @@ namespace CatenaryReplacer
             netInfo.m_segments[segment].m_segmentMesh = null;
             netInfo.m_segments[segment].m_lodMesh = null;
         }
+
         private static void RemoveNode(string net, int node)
         {
             var netInfo = PrefabCollection<NetInfo>.FindLoaded(net);
@@ -278,7 +247,20 @@ namespace CatenaryReplacer
             netInfo.m_nodes[node].m_nodeMesh = null;
             netInfo.m_nodes[node].m_lodMesh = null;
         }
-        private static void ReplaceLaneProp(string net, string original, string replacement)
+
+        private void RevertLaneProps()
+        {
+            foreach (var state in changes)
+            {
+                var laneProp = state.prefab.m_lanes[state.laneIndex].m_laneProps.m_props[state.propIndex];
+
+                laneProp.m_prop = state.originalProp;
+                laneProp.m_finalProp = state.originalProp;
+            }
+            changes.Clear();
+        }
+
+        private void ReplaceLaneProp(string net, string original, string replacement)
         {
             var netInfo = PrefabCollection<NetInfo>.FindLoaded(net);
             if (netInfo == null)
@@ -325,19 +307,5 @@ namespace CatenaryReplacer
                 }
             }
         }
-
-        private void RevertLaneProps()
-        {
-            foreach (var state in changes)
-            {
-                var laneProp = state.prefab.m_lanes[state.laneIndex].m_laneProps.m_props[state.propIndex];
-
-                laneProp.m_prop = state.originalProp;
-                laneProp.m_finalProp = state.originalProp;
-            }
-            changes.Clear();
-        }
     }
-
-
 }
