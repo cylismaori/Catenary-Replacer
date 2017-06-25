@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using ICities;
 using System.Collections.Generic;
+using CatenaryReplacer.OptionsFramework;
+using CatenaryReplacer.OptionsFramework.Extensions;
 using UnityEngine;
 
 namespace CatenaryReplacer
@@ -39,18 +41,7 @@ namespace CatenaryReplacer
 
         public void OnSettingsUI(UIHelperBase helper)
         {
-            var config = Configuration<CatenaryReplacerConfiguration>.Load();
-
-            UIHelperBase group = helper.AddGroup("CatenaryReplacer");
-            group.AddDropdown("Catenary Style", styles, config.Style, OnStyleSelect);
-        }
-
-        private void OnStyleSelect(int c)
-        {
-            var config = Configuration<CatenaryReplacerConfiguration>.Load();
-
-            config.Style = c;
-            Configuration<CatenaryReplacerConfiguration>.Save();
+            helper.AddOptionsGroup<CatenaryReplacerConfiguration>();
         }
 
         public override void OnLevelLoaded(LoadMode mode)
@@ -59,44 +50,35 @@ namespace CatenaryReplacer
 
             changes.Clear();
 
-            var config = Configuration<CatenaryReplacerConfiguration>.Load();
+            var config = OptionsWrapper<CatenaryReplacerConfiguration>.Options;
 
 
-            if (config.Style == 0)
+            var configStyle = (CatenaryStyle)config.Style;
+            switch (configStyle)
             {
-                //NONE
-                ReplaceCatenaries(null, null);
-                RemoveWires();
-            }
-            else if (config.Style == 1)
-            {
-                //Dutch Type A
-                ReplaceCatenaries("774449380.Catenary Type NL2A_Data", "774449380.Catenary Type NL1A_Data");
-            }
-            else if (config.Style == 2)
-            {
-                //Dutch Type B
-                ReplaceCatenaries("774449380.Catenary Type NL2B_Data", "774449380.Catenary Type NL1B_Data");
-            }
-            else if (config.Style == 3)
-            {
-                //German
-                ReplaceCatenaries("774449380.Catenary Type DE2A_Data", "774449380.Catenary Type DE1A_Data");
-            }
-            else if (config.Style == 4)
-            {
-                //PRR A
-                ReplaceCatenaries("774449380.Catenary Type PRR2A_Data", "774449380.Catenary Type PRR 1A_Data");
-            }
-            else if (config.Style == 5)
-            {
-                //PRR B
-                ReplaceCatenaries("774449380.Catenary Type PRR2B_Data", "774449380.Catenary Type PRR 1A_Data");
-            }
-            else if (config.Style == 6)
-            {
-                //Japan A
-                ReplaceCatenaries("774449380.Catenary Type JP2A_Data", "774449380.Catenary Type JP1A_Data");
+                case CatenaryStyle.None:
+                    ReplaceCatenaries(null, null);
+                    RemoveWires();
+                    break;
+                case CatenaryStyle.DutchTypeA:
+                    ReplaceCatenaries("774449380.Catenary Type NL2A_Data", "774449380.Catenary Type NL1A_Data");
+                    break;
+                case CatenaryStyle.DutchTypeB:
+                    ReplaceCatenaries("774449380.Catenary Type NL2B_Data", "774449380.Catenary Type NL1B_Data");
+                    break;
+                case CatenaryStyle.German:
+                    ReplaceCatenaries("774449380.Catenary Type DE2A_Data", "774449380.Catenary Type DE1A_Data");
+                    break;
+                case CatenaryStyle.PrrA:
+                    ReplaceCatenaries("774449380.Catenary Type PRR2A_Data", "774449380.Catenary Type PRR 1A_Data");
+                    break;
+                case CatenaryStyle.PrrB:
+                    ReplaceCatenaries("774449380.Catenary Type PRR2B_Data", "774449380.Catenary Type PRR 1A_Data");
+                    break;
+                case CatenaryStyle.JapanA:
+                    //Japan A
+                    ReplaceCatenaries("774449380.Catenary Type JP2A_Data", "774449380.Catenary Type JP1A_Data");
+                    break;
             }
         }
         public override void OnLevelUnloading()
@@ -357,9 +339,5 @@ namespace CatenaryReplacer
         }
     }
 
-    [ConfigurationPath("CatenaryReplacer.xml")]
-    public class CatenaryReplacerConfiguration
-    {
-        public int Style { get; set; }
-    }
+
 }

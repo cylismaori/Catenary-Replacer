@@ -31,7 +31,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CatenaryReplacer.cs" />
-    <Compile Include="Configuration.cs" />
+    <Compile Include="CatenaryReplacerConfiguration.cs" />
+    <Compile Include="CatenaryStyle.cs" />
     <Compile Include="OptionsFramework\Attibutes\AbstractOptionsAttribute.cs" />
     <Compile Include="OptionsFramework\Attibutes\ButtonAttribute.cs" />
     <Compile Include="OptionsFramework\Attibutes\CheckboxAttribute.cs" />
