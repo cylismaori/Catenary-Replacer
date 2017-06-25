@@ -35,10 +35,6 @@ namespace CatenaryReplacer
         public void Awake()
         {
             var config = OptionsWrapper<CatenaryReplacerConfiguration>.Options;
-            if (!config.ReplacementEnabled)
-            {
-                return;
-            }
             var configStyle = (CatenaryStyle) config.Style;
             switch (configStyle)
             {
@@ -62,7 +58,6 @@ namespace CatenaryReplacer
                     ReplaceCatenaries("774449380.Catenary Type PRR2B_Data", "774449380.Catenary Type PRR 1A_Data");
                     break;
                 case CatenaryStyle.JapanA:
-                    //Japan A
                     ReplaceCatenaries("774449380.Catenary Type JP2A_Data", "774449380.Catenary Type JP1A_Data");
                     break;
             }
@@ -70,11 +65,6 @@ namespace CatenaryReplacer
 
         public void Start()
         {
-            var config = OptionsWrapper<CatenaryReplacerConfiguration>.Options;
-            if (!config.ReplacementEnabled)
-            {
-                return;
-            }
             StartCoroutine(ExecuteAfterTime());
         }
 
