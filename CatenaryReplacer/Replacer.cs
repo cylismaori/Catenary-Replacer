@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using CatenaryReplacer.OptionsFramework;
 using UnityEngine;
 
 namespace CatenaryReplacer
 {
+    //TODO(earalov): use more generic approach for replacing props
+    //TODO(earalov): add support for more track types
     public class Replacer : MonoBehaviour
     {
         /// <summary>
@@ -19,6 +22,8 @@ namespace CatenaryReplacer
 
             public PropInfo originalProp;
             public PropInfo replacementProp;
+
+            public float originalAngle;
         }
 
         private readonly List<ReplacementState> changes = new List<ReplacementState>();
@@ -65,6 +70,11 @@ namespace CatenaryReplacer
 
         public void Start()
         {
+            var config = OptionsWrapper<CatenaryReplacerConfiguration>.Options;
+            if (!config.ReplacementEnabled)
+            {
+                return;
+            }
             StartCoroutine(ExecuteAfterTime());
         }
 
@@ -91,18 +101,24 @@ namespace CatenaryReplacer
             ReplaceLaneProp("Station Track Elevated (C)", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Station Track Elevated Narrow", "RailwayPowerline", doubleReplacement);
 
-            ReplaceLaneProp("Rail1L", "724382534.Rail1LPowerLine_Data", singleReplacement);
+            ReplaceLaneProp("Rail1L", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Rail1L Slope", "RailwayPowerline", singleReplacement); //Depends on One-Way Tracks update
-            ReplaceLaneProp("Rail1L Elevated", "724382534.Rail1LPowerLine_Data", singleReplacement);
-            ReplaceLaneProp("Rail1L Bridge", "724382534.Rail1LPowerLine_Data", singleReplacement);
-            ReplaceLaneProp("Rail1L Tunnel", "724382534.Rail1LPowerLine_Data", singleReplacement);
-            ReplaceLaneProp("Rail1L2W", "724382534.Rail1LPowerLine_Data", singleReplacement);
+            ReplaceLaneProp("Rail1L Elevated", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Rail1L Bridge", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Rail1L Tunnel", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Rail1L2W", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Rail1L2W Slope", "RailwayPowerline", singleReplacement); //Depends on One-Way Tracks update
-            ReplaceLaneProp("Rail1L2W Elevated", "724382534.Rail1LPowerLine_Data", singleReplacement);
-            ReplaceLaneProp("Rail1L2W Bridge", "724382534.Rail1LPowerLine_Data", singleReplacement);
-            ReplaceLaneProp("Rail1L2W Tunnel", "724382534.Rail1LPowerLine_Data", singleReplacement);
-            ReplaceLaneProp("Rail1L2SidedStation", "724382534.Rail1LPowerLine_Data", singleReplacement);
-            ReplaceLaneProp("Rail1LStation", "724382534.Rail1LPowerLine_Data", singleReplacement);
+            ReplaceLaneProp("Rail1L2W Elevated", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Rail1L2W Bridge", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Rail1L2W Tunnel", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Rail1L2SidedStation", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Rail1LStation", "RailwayPowerline Singular", singleReplacement);
+
+            ReplaceLaneProp("Train Oneway Track", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Train Oneway Track Slope", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Train Oneway Track Bridge", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Train Oneway Track Elevated", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Train Oneway Track Tunnel", "RailwayPowerline Singular", singleReplacement);
         }
 
         private void ReplaceCatenaries(string doubleReplacement, string singleReplacement)
@@ -298,11 +314,13 @@ namespace CatenaryReplacer
                                     laneIndex = laneIndex,
                                     propIndex = propIndex,
                                     originalProp = laneProp.m_prop,
-                                    replacementProp = replacementProp
+                                    replacementProp = replacementProp,
+                                    originalAngle = laneProp.m_angle
                                 });
 
                                 laneProp.m_prop = replacementProp;
                                 laneProp.m_finalProp = replacementProp;
+                                laneProp.m_angle = 180f;
                             }
                         }
                     }
