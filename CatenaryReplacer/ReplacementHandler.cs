@@ -33,7 +33,7 @@ namespace CatenaryReplacer
 
             if (go != null)
             {
-                Object.Destroy(go);
+                Object.DestroyImmediate(go);
             }
         }
     }
