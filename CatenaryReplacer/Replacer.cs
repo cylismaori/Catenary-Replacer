@@ -51,29 +51,29 @@ namespace CatenaryReplacer
             switch (configStyle)
             {
                 case CatenaryStyle.None:
-                    ReplaceCatenaries(null, null);
+                    SetReplacementPropNames(null, null);
                     RemoveWires();
                     break;
                 case CatenaryStyle.DutchTypeA:
-                    ReplaceCatenaries("Catenary Type NL2A", "Catenary Type NL1A");
+                    SetReplacementPropNames("Catenary Type NL2A", "Catenary Type NL1A");
                     break;
                 case CatenaryStyle.DutchTypeB:
-                    ReplaceCatenaries("Catenary Type NL2B", "Catenary Type NL1B");
+                    SetReplacementPropNames("Catenary Type NL2B", "Catenary Type NL1B");
                     break;
                 case CatenaryStyle.German:
-                    ReplaceCatenaries("Catenary Type DE2A", "Catenary Type DE1A");
+                    SetReplacementPropNames("Catenary Type DE2A", "Catenary Type DE1A");
                     break;
                 case CatenaryStyle.PrrA:
-                    ReplaceCatenaries("Catenary Type PRR2A", "Catenary Type PRR 1A");
+                    SetReplacementPropNames("Catenary Type PRR2A", "Catenary Type PRR 1A");
                     break;
                 case CatenaryStyle.PrrB:
-                    ReplaceCatenaries("Catenary Type PRR2B", "Catenary Type PRR 1A");
+                    SetReplacementPropNames("Catenary Type PRR2B", "Catenary Type PRR 1A");
                     break;
                 case CatenaryStyle.JapanA:
-                    ReplaceCatenaries("Catenary Type JP2A", "Catenary Type JP1A");
+                    SetReplacementPropNames("Catenary Type JP2A", "Catenary Type JP1A");
                     break;
                 case CatenaryStyle.ExpoA:
-                    ReplaceCatenaries("Catenary Type EXPO1A", "Catenary Type EXPO2A");
+                    SetReplacementPropNames("Catenary Type EXPO1A", "Catenary Type EXPO2A");
                     break;
             }
         }
@@ -128,10 +128,10 @@ namespace CatenaryReplacer
             ReplaceLaneProp("Train Oneway Track Tunnel", "RailwayPowerline Singular", singleReplacement);
         }
 
-        private void ReplaceCatenaries(string doubleReplacement, string singleReplacement)
+        private void SetReplacementPropNames(string doubleReplacement, string singleReplacement)
         {
-            this.doubleReplacement = $"774449380.{doubleReplacement}_Data";
-            this.singleReplacement = $"774449380.{singleReplacement}_Data";
+            this.doubleReplacement = doubleReplacement == null ? null : $"774449380.{doubleReplacement}_Data";
+            this.singleReplacement = singleReplacement == null ? null : $"774449380.{singleReplacement}_Data";
         }
 
         private void RemoveWires()
