@@ -44,22 +44,25 @@ namespace CatenaryReplacer
                     RemoveWires();
                     break;
                 case CatenaryStyle.DutchTypeA:
-                    ReplaceCatenaries("774449380.Catenary Type NL2A_Data", "774449380.Catenary Type NL1A_Data");
+                    ReplaceCatenaries("Catenary Type NL2A", "Catenary Type NL1A");
                     break;
                 case CatenaryStyle.DutchTypeB:
-                    ReplaceCatenaries("774449380.Catenary Type NL2B_Data", "774449380.Catenary Type NL1B_Data");
+                    ReplaceCatenaries("Catenary Type NL2B", "Catenary Type NL1B");
                     break;
                 case CatenaryStyle.German:
-                    ReplaceCatenaries("774449380.Catenary Type DE2A_Data", "774449380.Catenary Type DE1A_Data");
+                    ReplaceCatenaries("Catenary Type DE2A", "Catenary Type DE1A");
                     break;
                 case CatenaryStyle.PrrA:
-                    ReplaceCatenaries("774449380.Catenary Type PRR2A_Data", "774449380.Catenary Type PRR 1A_Data");
+                    ReplaceCatenaries("Catenary Type PRR2A", "Catenary Type PRR 1A");
                     break;
                 case CatenaryStyle.PrrB:
-                    ReplaceCatenaries("774449380.Catenary Type PRR2B_Data", "774449380.Catenary Type PRR 1A_Data");
+                    ReplaceCatenaries("Catenary Type PRR2B", "Catenary Type PRR 1A");
                     break;
                 case CatenaryStyle.JapanA:
-                    ReplaceCatenaries("774449380.Catenary Type JP2A_Data", "774449380.Catenary Type JP1A_Data");
+                    ReplaceCatenaries("Catenary Type JP2A", "Catenary Type JP1A");
+                    break;
+                case CatenaryStyle.ExpoA:
+                    ReplaceCatenaries("Catenary Type EXPO1A", "Catenary Type EXPO2A");
                     break;
             }
         }
@@ -114,8 +117,8 @@ namespace CatenaryReplacer
 
         private void ReplaceCatenaries(string doubleReplacement, string singleReplacement)
         {
-            this.doubleReplacement = doubleReplacement;
-            this.singleReplacement = singleReplacement;
+            this.doubleReplacement = $"774449380.{doubleReplacement}_Data";
+            this.singleReplacement = $"774449380.{singleReplacement}_Data";
         }
 
         private void RemoveWires()

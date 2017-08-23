@@ -71,6 +71,8 @@
   <ItemGroup>
     <None Include="Assets\CR_DE1A.crp" />
     <None Include="Assets\CR_DE2A.crp" />
+    <None Include="Assets\CR_EXPO1A.crp" />
+    <None Include="Assets\CR_EXPO2A.crp" />
     <None Include="Assets\CR_JP1A.crp" />
     <None Include="Assets\CR_JP2A.crp" />
     <None Include="Assets\CR_NL1A.crp" />

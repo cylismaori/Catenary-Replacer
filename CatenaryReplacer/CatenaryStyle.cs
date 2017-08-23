@@ -10,6 +10,7 @@ namespace CatenaryReplacer
         [Description("German")] German = 3,
         [Description("PRR A")] PrrA = 4,
         [Description("PRR B")] PrrB = 5,
-        [Description("Japan A")] JapanA = 6
+        [Description("Japan A")] JapanA = 6,
+        [Description("Expo Line")] ExpoA = 7
     }
 }
