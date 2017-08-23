@@ -14,7 +14,7 @@ namespace CatenaryReplacer
         /// <summary>
         /// Saves the changed lane prop state;
         /// </summary>
-        private class ReplacementState
+        private struct ReplacementStateProp
         {
             public NetInfo prefab;
 
@@ -27,8 +27,19 @@ namespace CatenaryReplacer
             public float originalAngle;
         }
 
-        private readonly List<ReplacementState> changes = new List<ReplacementState>();
+        private struct ReplacementStateSegment
+        {
+            public string netInfoName;
+            public Mesh mesh;
+            public Mesh lodMesh;
+            public int index;
+        }
 
+
+
+        private readonly List<ReplacementStateProp> propChanges = new List<ReplacementStateProp>();
+        private readonly List<ReplacementStateSegment> nodeChanges = new List<ReplacementStateSegment>();
+        private readonly List<ReplacementStateSegment> segmentChanges = new List<ReplacementStateSegment>();
 
         public string doubleReplacement;
         public string singleReplacement;
@@ -36,7 +47,7 @@ namespace CatenaryReplacer
         public void Awake()
         {
             var config = OptionsWrapper<CatenaryReplacerConfiguration>.Options;
-            var configStyle = (CatenaryStyle) config.Style;
+            var configStyle = (CatenaryStyle)config.Style;
             switch (configStyle)
             {
                 case CatenaryStyle.None:
@@ -75,6 +86,8 @@ namespace CatenaryReplacer
         public void OnDestroy()
         {
             RevertLaneProps();
+            RevertNodes();
+            RevertSegments();
         }
 
         private IEnumerator ExecuteAfterTime()
@@ -222,7 +235,7 @@ namespace CatenaryReplacer
             RemoveNode("Rail1LStation", 7);
         }
 
-        private static void RemoveSegment(string net, int segment)
+        private void RemoveSegment(string net, int segment)
         {
             var netInfo = PrefabCollection<NetInfo>.FindLoaded(net);
             if (netInfo == null)
@@ -237,11 +250,19 @@ namespace CatenaryReplacer
                 return;
             }
 
+            segmentChanges.Add(new ReplacementStateSegment()
+            {
+                netInfoName = net,
+                index = segment,
+                mesh = netInfo.m_segments[segment].m_segmentMesh,
+                lodMesh = netInfo.m_segments[segment].m_lodMesh
+            });
+
             netInfo.m_segments[segment].m_segmentMesh = null;
             netInfo.m_segments[segment].m_lodMesh = null;
         }
 
-        private static void RemoveNode(string net, int node)
+        private void RemoveNode(string net, int node)
         {
             var netInfo = PrefabCollection<NetInfo>.FindLoaded(net);
             if (netInfo == null)
@@ -256,13 +277,21 @@ namespace CatenaryReplacer
                 return;
             }
 
+            nodeChanges.Add(new ReplacementStateSegment()
+            {
+                netInfoName = net,
+                index = node,
+                mesh = netInfo.m_nodes[node].m_nodeMesh,
+                lodMesh = netInfo.m_nodes[node].m_lodMesh
+            });
+
             netInfo.m_nodes[node].m_nodeMesh = null;
             netInfo.m_nodes[node].m_lodMesh = null;
         }
 
         private void RevertLaneProps()
         {
-            foreach (var state in changes)
+            foreach (var state in propChanges)
             {
                 var laneProp = state.prefab.m_lanes[state.laneIndex].m_laneProps.m_props[state.propIndex];
 
@@ -270,7 +299,29 @@ namespace CatenaryReplacer
                 laneProp.m_finalProp = state.originalProp;
                 laneProp.m_angle = state.originalAngle;
             }
-            changes.Clear();
+            propChanges.Clear();
+        }
+
+        private void RevertSegments()
+        {
+            foreach (var state in segmentChanges)
+            {
+                NetInfo netInfo = PrefabCollection<NetInfo>.FindLoaded(state.netInfoName);
+                netInfo.m_segments[state.index].m_mesh = state.mesh;
+                netInfo.m_segments[state.index].m_lodMesh = state.lodMesh;
+            }
+            segmentChanges.Clear();
+        }
+
+        private void RevertNodes()
+        {
+            foreach (var state in nodeChanges)
+            {
+                NetInfo netInfo = PrefabCollection<NetInfo>.FindLoaded(state.netInfoName);
+                netInfo.m_nodes[state.index].m_mesh = state.mesh;
+                netInfo.m_nodes[state.index].m_lodMesh = state.lodMesh;
+            }
+            nodeChanges.Clear();
         }
 
         private void ReplaceLaneProp(string net, string original, string replacement)
@@ -303,7 +354,7 @@ namespace CatenaryReplacer
 
                             if (laneProp != null && laneProp.m_prop != null && laneProp.m_prop.name == original)
                             {
-                                changes.Add(new ReplacementState
+                                propChanges.Add(new ReplacementStateProp
                                 {
                                     prefab = netInfo,
                                     laneIndex = laneIndex,
