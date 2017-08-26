@@ -73,7 +73,7 @@ namespace CatenaryReplacer
                     SetReplacementPropNames("Catenary Type JP2A", "Catenary Type JP1A");
                     break;
                 case CatenaryStyle.ExpoA:
-                    SetReplacementPropNames("Catenary Type EXPO1A", "Catenary Type EXPO2A");
+                    SetReplacementPropNames("Catenary Type EXPO2A", "Catenary Type EXPO1A");
                     break;
             }
         }
