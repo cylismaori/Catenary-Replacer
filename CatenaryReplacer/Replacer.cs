@@ -32,6 +32,7 @@ namespace CatenaryReplacer
             public string netInfoName;
             public Mesh mesh;
             public Mesh lodMesh;
+            public NetInfo.LodValue combinedLod;
             public int index;
         }
 
@@ -76,6 +77,7 @@ namespace CatenaryReplacer
                     SetReplacementPropNames("Catenary Type EXPO2A", "Catenary Type EXPO1A");
                     break;
             }
+            
         }
 
         public void Start()
@@ -255,11 +257,13 @@ namespace CatenaryReplacer
                 netInfoName = net,
                 index = segment,
                 mesh = netInfo.m_segments[segment].m_segmentMesh,
-                lodMesh = netInfo.m_segments[segment].m_lodMesh
+                lodMesh = netInfo.m_segments[segment].m_lodMesh,
+                combinedLod = netInfo.m_segments[segment].m_combinedLod
             });
 
             netInfo.m_segments[segment].m_segmentMesh = null;
             netInfo.m_segments[segment].m_lodMesh = null;
+            netInfo.m_segments[segment].m_combinedLod = null;
         }
 
         private void RemoveNode(string net, int node)
@@ -282,11 +286,13 @@ namespace CatenaryReplacer
                 netInfoName = net,
                 index = node,
                 mesh = netInfo.m_nodes[node].m_nodeMesh,
-                lodMesh = netInfo.m_nodes[node].m_lodMesh
+                lodMesh = netInfo.m_nodes[node].m_lodMesh,
+                combinedLod = netInfo.m_nodes[node].m_combinedLod
             });
 
             netInfo.m_nodes[node].m_nodeMesh = null;
             netInfo.m_nodes[node].m_lodMesh = null;
+            netInfo.m_nodes[node].m_combinedLod = null;
         }
 
         private void RevertLaneProps()
