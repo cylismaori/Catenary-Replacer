@@ -315,6 +315,7 @@ namespace CatenaryReplacer
                 NetInfo netInfo = PrefabCollection<NetInfo>.FindLoaded(state.netInfoName);
                 netInfo.m_segments[state.index].m_segmentMesh = state.mesh;
                 netInfo.m_segments[state.index].m_lodMesh = state.lodMesh;
+                netInfo.m_segments[state.index].m_combinedLod = state.combinedLod;
             }
             segmentChanges.Clear();
         }
@@ -326,6 +327,7 @@ namespace CatenaryReplacer
                 NetInfo netInfo = PrefabCollection<NetInfo>.FindLoaded(state.netInfoName);
                 netInfo.m_nodes[state.index].m_nodeMesh = state.mesh;
                 netInfo.m_nodes[state.index].m_lodMesh = state.lodMesh;
+                netInfo.m_nodes[state.index].m_combinedLod = state.combinedLod;
             }
             nodeChanges.Clear();
         }
