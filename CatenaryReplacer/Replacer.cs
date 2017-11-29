@@ -9,6 +9,9 @@ namespace CatenaryReplacer
     //TODO(earalov): add support for more track types
     //TODO(earalov): add offset for props when updating vanilla one-ways
     //TODO(earalov): implement no-wire for vanilla one-ways
+
+    //DONE(Tim): Attempt to support Jerenable's tracks (temporary?)
+
     public class Replacer : MonoBehaviour
     {
         /// <summary>
@@ -109,6 +112,12 @@ namespace CatenaryReplacer
             ReplaceLaneProp("Station Track Eleva", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Station Track Elevated (C)", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Station Track Elevated Narrow", "RailwayPowerline", doubleReplacement);
+            //Better (Highspeed) Rail by Jerenable
+            ReplaceLaneProp("Better Vanilla Rail_Data", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Highspeed vanilla style_Data", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Track Bridge0_Data", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Track Elevated0_Data", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Track Slope_Data", "RailwayPowerline", doubleReplacement);
 
             ReplaceLaneProp("Rail1L", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Rail1L Slope", "RailwayPowerline", singleReplacement); //Depends on One-Way Tracks update
@@ -127,6 +136,8 @@ namespace CatenaryReplacer
             ReplaceLaneProp("Train Oneway Track Slope", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Train Oneway Track Bridge", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Train Oneway Track Elevated", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Train Oneway Track Tunnel", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Train Oneway Track Tunnel", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Train Oneway Track Tunnel", "RailwayPowerline Singular", singleReplacement);
         }
 
@@ -167,6 +178,12 @@ namespace CatenaryReplacer
             RemoveSegment("Rail1L2W Bridge", 2);
             RemoveSegment("Rail1L2SidedStation", 2);
             RemoveSegment("Rail1LStation", 2);
+            //Better (Highspeed) Rail by Jerenable
+            RemoveSegment("Better Vanilla Rail_Data", 2);
+            RemoveSegment("Highspeed vanilla style_Data", 2);
+            RemoveSegment("Train Track Bridge0_Data", 2);
+            RemoveSegment("Train Track Elevated0_Data", 2);
+            RemoveSegment("Train Track Slope0_Data", 2);
 
             //Nodes
             RemoveNode("Train Track", 3);
@@ -235,6 +252,12 @@ namespace CatenaryReplacer
             RemoveNode("Rail1LStation", 3);
             RemoveNode("Rail1LStation", 5);
             RemoveNode("Rail1LStation", 7);
+            //Better (Highspeed) Rail by Jerenable
+            RemoveNode("Better Vanilla Rail_Data", 3);
+            RemoveNode("Highspeed vanilla style_Data", 3);
+            RemoveNode("Train Track Bridge0_Data", 2);
+            RemoveNode("Train Track Slope0_Data", 2);
+            RemoveNode("Train Track Elevated0_Data", 2);
         }
 
         private void RemoveSegment(string net, int segment)
