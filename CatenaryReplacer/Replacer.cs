@@ -115,9 +115,9 @@ namespace CatenaryReplacer
             //Better (Highspeed) Rail by Jerenable
             ReplaceLaneProp("Better Vanilla Rail_Data", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Highspeed vanilla style_Data", "RailwayPowerline", doubleReplacement);
-            ReplaceLaneProp("Train Track Bridge0_Data", "RailwayPowerline", doubleReplacement);
-            ReplaceLaneProp("Train Track Elevated0_Data", "RailwayPowerline", doubleReplacement);
-            ReplaceLaneProp("Train Track Slope_Data", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Track Bridge0", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Track Elevated0", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Track Slope0", "RailwayPowerline", doubleReplacement);
 
             ReplaceLaneProp("Rail1L", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Rail1L Slope", "RailwayPowerline", singleReplacement); //Depends on One-Way Tracks update
@@ -181,9 +181,9 @@ namespace CatenaryReplacer
             //Better (Highspeed) Rail by Jerenable
             RemoveSegment("Better Vanilla Rail_Data", 2);
             RemoveSegment("Highspeed vanilla style_Data", 2);
-            RemoveSegment("Train Track Bridge0_Data", 2);
-            RemoveSegment("Train Track Elevated0_Data", 2);
-            RemoveSegment("Train Track Slope0_Data", 2);
+            RemoveSegment("Train Track Bridge0", 2);
+            RemoveSegment("Train Track Elevated0", 2);
+            RemoveSegment("Train Track Slope0", 2);
 
             //Nodes
             RemoveNode("Train Track", 3);
@@ -255,9 +255,9 @@ namespace CatenaryReplacer
             //Better (Highspeed) Rail by Jerenable
             RemoveNode("Better Vanilla Rail_Data", 3);
             RemoveNode("Highspeed vanilla style_Data", 3);
-            RemoveNode("Train Track Bridge0_Data", 2);
-            RemoveNode("Train Track Slope0_Data", 2);
-            RemoveNode("Train Track Elevated0_Data", 2);
+            RemoveNode("Train Track Bridge0", 2);
+            RemoveNode("Train Track Slope0", 2);
+            RemoveNode("Train Track Elevated0", 2);
         }
 
         private void RemoveSegment(string net, int segment)
