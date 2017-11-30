@@ -114,7 +114,7 @@ namespace CatenaryReplacer
             ReplaceLaneProp("Station Track Elevated Narrow", "RailwayPowerline", doubleReplacement);
             //Better (Highspeed) Rail by Jerenable
             ReplaceLaneProp("Better Vanilla Rail_Data", "RailwayPowerline", doubleReplacement);
-            ReplaceLaneProp("Highspeed vanilla style_Data", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Highspeed Rail vanilla style_Data", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Train Track Bridge0", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Train Track Elevated0", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Train Track Slope0", "RailwayPowerline", doubleReplacement);
@@ -180,7 +180,7 @@ namespace CatenaryReplacer
             RemoveSegment("Rail1LStation", 2);
             //Better (Highspeed) Rail by Jerenable
             RemoveSegment("Better Vanilla Rail_Data", 2);
-            RemoveSegment("Highspeed vanilla style_Data", 2);
+            RemoveSegment("Highspeed Rail vanilla style_Data", 2);
             RemoveSegment("Train Track Bridge0", 2);
             RemoveSegment("Train Track Elevated0", 2);
             RemoveSegment("Train Track Slope0", 2);
@@ -254,7 +254,7 @@ namespace CatenaryReplacer
             RemoveNode("Rail1LStation", 7);
             //Better (Highspeed) Rail by Jerenable
             RemoveNode("Better Vanilla Rail_Data", 3);
-            RemoveNode("Highspeed vanilla style_Data", 3);
+            RemoveNode("Highspeed Rail vanilla style_Data", 3);
             RemoveNode("Train Track Bridge0", 2);
             RemoveNode("Train Track Slope0", 2);
             RemoveNode("Train Track Elevated0", 2);
