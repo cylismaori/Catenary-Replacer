@@ -98,7 +98,7 @@ namespace CatenaryReplacer
         private IEnumerator ExecuteAfterTime()
         {
             yield return new WaitForSeconds(0.1f);
-
+            //Vanilla
             ReplaceLaneProp("Train Track", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Train Cargo Track", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Train Track Bridge", "RailwayPowerline", doubleReplacement);
@@ -107,18 +107,23 @@ namespace CatenaryReplacer
             ReplaceLaneProp("Train Cargo Track Elevated", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Oneway Train Track", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Station Track Sunken", "RailwayPowerline", doubleReplacement);
+            //Extra Station Tracks (Mod)
             ReplaceLaneProp("Train Station Track (C)", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Station Track Elevated Narrow (C)", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Station Track Eleva", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Station Track Elevated (C)", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Station Track Elevated Narrow", "RailwayPowerline", doubleReplacement);
-            //Better (Highspeed) Rail by Jerenable
-            ReplaceLaneProp("Better Vanilla Rail_Data", "RailwayPowerline", doubleReplacement);
-            ReplaceLaneProp("Highspeed Rail vanilla style_Data", "RailwayPowerline", doubleReplacement);
-            ReplaceLaneProp("Train Track Bridge0", "RailwayPowerline", doubleReplacement);
-            ReplaceLaneProp("Train Track Elevated0", "RailwayPowerline", doubleReplacement);
-            ReplaceLaneProp("Train Track Slope0", "RailwayPowerline", doubleReplacement);
-
+            //Better Rail by Jerenable
+            ReplaceLaneProp("1178802767.Better Vanilla Rail_Data", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("1178802767.Train Track Bridge0", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("1178802767.Train Track Elevated0", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("1178802767.Train Track Slope0", "RailwayPowerline", doubleReplacement);
+            //Highspeed Rail by Jerenable
+            ReplaceLaneProp("1221219565.Highspeed Rail vanilla style_Data", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("1221219565.Train Track Bridge0", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("1221219565.Train Track Elevated0", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("1221219565.Train Track Slope0", "RailwayPowerline", doubleReplacement);
+            //OneWay Tracks (Mod)
             ReplaceLaneProp("Rail1L", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Rail1L Slope", "RailwayPowerline", singleReplacement); //Depends on One-Way Tracks update
             ReplaceLaneProp("Rail1L Elevated", "RailwayPowerline Singular", singleReplacement);
@@ -131,7 +136,7 @@ namespace CatenaryReplacer
             ReplaceLaneProp("Rail1L2W Tunnel", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Rail1L2SidedStation", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Rail1LStation", "RailwayPowerline Singular", singleReplacement);
-
+            //OneWay Tracks (Vanilla)
             ReplaceLaneProp("Train Oneway Track", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Train Oneway Track Slope", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Train Oneway Track Bridge", "RailwayPowerline Singular", singleReplacement);
@@ -150,24 +155,28 @@ namespace CatenaryReplacer
         private void RemoveWires()
         {
             //Segments
+
+            //Vanilla
             RemoveSegment("Train Track", 2);
             RemoveSegment("Train Cargo Track", 2);
             RemoveSegment("Train Track Bridge", 2);
             RemoveSegment("Train Track Elevated", 2);
             RemoveSegment("Train Track Slope", 2);
             RemoveSegment("Train Cargo Track Elevated", 2);
+            //OneWay Tracks (Vanilla)
             RemoveSegment("Oneway Train Track", 2);
             RemoveSegment("Oneway Train Track Elevated", 2);
             RemoveSegment("Oneway Train Track Slope", 2);
             RemoveSegment("Oneway Train Track Bridge", 2);
             RemoveSegment("Station Track Sunken", 2);
+            //Extra Station Tracks (Mod)
             RemoveSegment("Train Station Track (C)", 2);
             RemoveSegment("Train Station Track", 2);
             RemoveSegment("Station Track Elevated Narrow (C)", 2);
             RemoveSegment("Station Track Eleva", 2);
             RemoveSegment("Station Track Elevated (C)", 2);
             RemoveSegment("Station Track Elevated Narrow", 2);
-
+            //OneWay Tracks (Mod)
             RemoveSegment("Rail1L", 2);
             RemoveSegment("Rail1L Slope", 2);
             RemoveSegment("Rail1L Elevated", 2);
@@ -178,19 +187,26 @@ namespace CatenaryReplacer
             RemoveSegment("Rail1L2W Bridge", 2);
             RemoveSegment("Rail1L2SidedStation", 2);
             RemoveSegment("Rail1LStation", 2);
-            //Better (Highspeed) Rail by Jerenable
-            RemoveSegment("Better Vanilla Rail_Data", 2);
-            RemoveSegment("Highspeed Rail vanilla style_Data", 2);
-            RemoveSegment("Train Track Bridge0", 2);
-            RemoveSegment("Train Track Elevated0", 2);
-            RemoveSegment("Train Track Slope0", 2);
+            //Better Rail by Jerenable
+            RemoveSegment("1178802767.Better Vanilla Rail_Data", 2);
+            RemoveSegment("1178802767.Train Track Bridge0", 2);
+            RemoveSegment("1178802767.Train Track Slope0", 2);
+            RemoveSegment("1178802767.Train Track Elevated0", 2);
+            //Highspeed Rail by Jerenable
+            RemoveSegment("1221219565.Highspeed Rail vanilla style_Data", 2);
+            RemoveSegment("1221219565.Train Track Bridge0", 2);
+            RemoveSegment("1221219565.Train Track Slope0", 2);
+            RemoveSegment("1221219565.Train Track Elevated0", 2);
 
             //Nodes
+
+            //Vanilla
             RemoveNode("Train Track", 3);
             RemoveNode("Train Cargo Track", 3);
             RemoveNode("Train Track Bridge", 2);
             RemoveNode("Train Track Elevated", 2);
             RemoveNode("Train Cargo Track Elevated", 3);
+            //OneWay Tracks (Vanilla)
             RemoveNode("Oneway Train Track", 3);
             RemoveNode("Oneway Train Track", 6);
             RemoveNode("Oneway Train Track", 7);
@@ -214,6 +230,7 @@ namespace CatenaryReplacer
             RemoveNode("Oneway Train Track Bridge", 10);
             RemoveNode("Oneway Train Track Bridge", 11);
             RemoveNode("Oneway Train Track Bridge", 13);
+            //Extra Station Tracks (Mod)
             RemoveNode("Station Track Sunken", 3);
             RemoveNode("Train Station Track (C)", 3);
             RemoveNode("Train Station Track", 3);
@@ -221,7 +238,7 @@ namespace CatenaryReplacer
             RemoveNode("Station Track Eleva", 3);
             RemoveNode("Station Track Elevated (C)", 3);
             RemoveNode("Station Track Elevated Narrow", 3);
-
+            //OneWay Tracks (Mod)
             RemoveNode("Rail1L", 3);
             RemoveNode("Rail1L", 6);
             RemoveNode("Rail1L", 7);
@@ -252,12 +269,16 @@ namespace CatenaryReplacer
             RemoveNode("Rail1LStation", 3);
             RemoveNode("Rail1LStation", 5);
             RemoveNode("Rail1LStation", 7);
-            //Better (Highspeed) Rail by Jerenable
-            RemoveNode("Better Vanilla Rail_Data", 3);
-            RemoveNode("Highspeed Rail vanilla style_Data", 3);
-            RemoveNode("Train Track Bridge0", 2);
-            RemoveNode("Train Track Slope0", 2);
-            RemoveNode("Train Track Elevated0", 2);
+            //Better Rail by Jerenable
+            RemoveNode("1178802767.Better Vanilla Rail_Data", 3);
+            RemoveNode("1178802767.Train Track Bridge0", 2);
+            RemoveNode("1178802767.Train Track Slope0", 2);
+            RemoveNode("1178802767.Train Track Elevated0", 2);
+            //Highspeed Rail by Jerenable
+            RemoveNode("1221219565.Highspeed Rail vanilla style_Data", 3);
+            RemoveNode("1221219565.Train Track Bridge0", 2);
+            RemoveNode("1221219565.Train Track Slope0", 2);
+            RemoveNode("1221219565.Train Track Elevated0", 2);
         }
 
         private void RemoveSegment(string net, int segment)
