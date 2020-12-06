@@ -144,6 +144,21 @@ namespace CatenaryReplacer
             ReplaceLaneProp("Train Oneway Track Tunnel", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Train Oneway Track Tunnel", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Train Oneway Track Tunnel", "RailwayPowerline Singular", singleReplacement);
+            //Cylis' Tracks
+            ReplaceLaneProp("2223774659.Rendered Train Tracks_Data", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("2223774659.Train Track Elevated0", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("2223774659.Train Track Bridge0", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("2223774659.Train Track Slope0", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("2223774659.Train Track Tunnel0", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("2223774659.Rendered One-way Train Tracks_Data", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("2223774659.Train Oneway Track Elevated0", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("2223774659.Train Oneway Track Bridge0", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("2223774659.Train Oneway Track Slope0", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("2223774659.Train Oneway Track Tunnel0", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("track_w_bypass_station.Wired Bypass Station_Data", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("wiredstationtrack.Wired Station Track_Data", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("wiredestationtrack.Wired Elevated Station Track_Data", "RailwayPowerline", doubleReplacement);
+
         }
 
         private void SetReplacementPropNames(string doubleReplacement, string singleReplacement)
@@ -197,6 +212,22 @@ namespace CatenaryReplacer
             RemoveSegment("1221219565.Train Track Bridge0", 2);
             RemoveSegment("1221219565.Train Track Slope0", 2);
             RemoveSegment("1221219565.Train Track Elevated0", 2);
+            // Cylis' Tracks
+            RemoveSegment("2223774659.Rendered Train Tracks_Data", 4);
+            RemoveSegment("2223774659.Train Track Elevated0", 5);
+            RemoveSegment("2223774659.Train Track Bridge0", 5);
+            RemoveSegment("2223774659.Train Track Slope0", 4);
+            RemoveSegment("2223774659.Train Track Tunnel0", 4);
+            RemoveSegment("2223774659.Rendered One-way Train Tracks_Data", 4);
+            RemoveSegment("2223774659.Train Oneway Track Elevated0", 5);
+            RemoveSegment("2223774659.Train Oneway Track Bridge0", 5);
+            RemoveSegment("2223774659.Train Oneway Track Slope0", 4);
+            RemoveSegment("2223774659.Train Oneway Track Tunnel0", 4);
+            RemoveSegment("track_w_bypass_station.Wired Bypass Station_Data", 5);
+            RemoveSegment("track_w_bypass_station.Wired Bypass Station_Data", 6);
+            RemoveSegment("wiredstationtrack.Wired Station Track_Data", 3);
+            RemoveSegment("wiredestationtrack.Wired Elevated Station Track_Data", 4);
+
 
             //Nodes
 
@@ -279,6 +310,35 @@ namespace CatenaryReplacer
             RemoveNode("1221219565.Train Track Bridge0", 2);
             RemoveNode("1221219565.Train Track Slope0", 2);
             RemoveNode("1221219565.Train Track Elevated0", 2);
+            // Cylis' Tracks
+            RemoveNode("2223774659.Rendered Train Tracks_Data", 4);
+            RemoveNode("2223774659.Train Track Elevated0", 6);
+            RemoveNode("2223774659.Train Track Bridge0", 4);
+            RemoveNode("2223774659.Train Track Slope0", 5);
+            RemoveNode("2223774659.Train Track Tunnel0", 3);
+            RemoveNode("2223774659.Rendered One-way Train Tracks_Data", 6);
+            RemoveNode("2223774659.Rendered One-way Train Tracks_Data", 7);
+            RemoveNode("2223774659.Rendered One-way Train Tracks_Data", 8);
+            RemoveNode("2223774659.Train Oneway Track Elevated0", 8);
+            RemoveNode("2223774659.Train Oneway Track Elevated0", 9);
+            RemoveNode("2223774659.Train Oneway Track Elevated0", 10);
+            RemoveNode("2223774659.Train Oneway Track Bridge0", 6);
+            RemoveNode("2223774659.Train Oneway Track Bridge0", 7);
+            RemoveNode("2223774659.Train Oneway Track Bridge0", 8);
+            RemoveNode("2223774659.Train Oneway Track Slope0", 8);
+            RemoveNode("2223774659.Train Oneway Track Slope0", 9);
+            RemoveNode("2223774659.Train Oneway Track Slope0", 10);
+            RemoveNode("2223774659.Train Oneway Track Tunnel0", 7);
+            RemoveNode("track_w_bypass_station.Wired Bypass Station_Data", 8);
+            RemoveNode("track_w_bypass_station.Wired Bypass Station_Data", 9);
+            RemoveNode("track_w_bypass_station.Wired Bypass Station_Data", 10);
+            RemoveNode("track_w_bypass_station.Wired Bypass Station_Data", 11);
+            RemoveNode("track_w_bypass_station.Wired Bypass Station_Data", 12);
+            RemoveNode("wiredstationtrack.Wired Station Track_Data", 5);
+            RemoveNode("wiredstationtrack.Wired Station Track_Data", 6);
+            RemoveNode("wiredestationtrack.Wired Elevated Station Track_Data", 6);
+            RemoveNode("wiredestationtrack.Wired Elevated Station Track_Data", 7);
+
         }
 
         private void RemoveSegment(string net, int segment)
@@ -418,7 +478,7 @@ namespace CatenaryReplacer
 
                                 laneProp.m_prop = replacementProp;
                                 laneProp.m_finalProp = replacementProp;
-                                laneProp.m_angle = 180f;
+                                laneProp.m_angle = laneProp.m_angle > 180f ? laneProp.m_angle - 180f : laneProp.m_angle + 180f;
                             }
                         }
                     }
