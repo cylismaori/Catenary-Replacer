@@ -105,7 +105,16 @@ namespace CatenaryReplacer
             ReplaceLaneProp("Train Track Elevated", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Train Track Tunnel", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Train Cargo Track Elevated", "RailwayPowerline", doubleReplacement);
-            ReplaceLaneProp("Oneway Train Track", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Oneway Track", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Oneway Track Elevated", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Oneway Track Bridge", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Oneway Track Slope", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Oneway Track Tunnel", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Oneway Track", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Train Oneway Track Elevated", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Train Oneway Track Bridge", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Train Oneway Track Slope", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Train Oneway Track Tunnel", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Station Track Sunken", "RailwayPowerline", doubleReplacement);
             //Extra Station Tracks (Mod)
             ReplaceLaneProp("Train Station Track (C)", "RailwayPowerline", doubleReplacement);
@@ -144,7 +153,7 @@ namespace CatenaryReplacer
             ReplaceLaneProp("Train Oneway Track Tunnel", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Train Oneway Track Tunnel", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("Train Oneway Track Tunnel", "RailwayPowerline Singular", singleReplacement);
-            //Cylis' Tracks
+            //Rendered Train Tracks
             ReplaceLaneProp("2223774659.Rendered Train Tracks_Data", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("2223774659.Train Track Elevated0", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("2223774659.Train Track Bridge0", "RailwayPowerline", doubleReplacement);
@@ -155,16 +164,25 @@ namespace CatenaryReplacer
             ReplaceLaneProp("2223774659.Train Oneway Track Bridge0", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("2223774659.Train Oneway Track Slope0", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("2223774659.Train Oneway Track Tunnel0", "RailwayPowerline Singular", singleReplacement);
-            ReplaceLaneProp("track_w_bypass_station.Wired Bypass Station_Data", "RailwayPowerline Singular", singleReplacement);
-            ReplaceLaneProp("wiredstationtrack.Wired Station Track_Data", "RailwayPowerline", doubleReplacement);
-            ReplaceLaneProp("wiredestationtrack.Wired Elevated Station Track_Data", "RailwayPowerline", doubleReplacement);
+            // Rendered Vanilla Train Tracks
+            ReplaceLaneProp("2441462718.Rendered Vanilla Train Tracks_Data", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("2441462718.Train Track Elevated0", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("2441462718.Train Track Bridge0", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("2441462718.Train Track Slope0", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("2441462718.Train Track Tunnel0", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("2441462718.Rendered Van 1-way Train Track_Data", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("2441462718.Train Oneway Track Elevated0", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("2441462718.Train Oneway Track Bridge0", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("2441462718.Train Oneway Track Slope0", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("2441462718.Train Oneway Track Tunnel0", "RailwayPowerline Singular", singleReplacement);
+
 
         }
 
         private void SetReplacementPropNames(string doubleReplacement, string singleReplacement)
         {
-            this.doubleReplacement = doubleReplacement == null ? null : $"774449380.{doubleReplacement}_Data";
-            this.singleReplacement = singleReplacement == null ? null : $"774449380.{singleReplacement}_Data";
+            this.doubleReplacement = doubleReplacement == null ? null : $"2444511901.{doubleReplacement}_Data";
+            this.singleReplacement = singleReplacement == null ? null : $"2444511901.{singleReplacement}_Data";
         }
 
         private void RemoveWires()
@@ -179,10 +197,10 @@ namespace CatenaryReplacer
             RemoveSegment("Train Track Slope", 2);
             RemoveSegment("Train Cargo Track Elevated", 2);
             //OneWay Tracks (Vanilla)
-            RemoveSegment("Oneway Train Track", 2);
-            RemoveSegment("Oneway Train Track Elevated", 2);
-            RemoveSegment("Oneway Train Track Slope", 2);
-            RemoveSegment("Oneway Train Track Bridge", 2);
+            RemoveSegment("Train Oneway Track", 2);
+            RemoveSegment("Train Oneway Track Elevated", 2);
+            RemoveSegment("Train Oneway Track Slope", 2);
+            RemoveSegment("Train Oneway Track Bridge", 2);
             RemoveSegment("Station Track Sunken", 2);
             //Extra Station Tracks (Mod)
             RemoveSegment("Train Station Track (C)", 2);
@@ -212,7 +230,7 @@ namespace CatenaryReplacer
             RemoveSegment("1221219565.Train Track Bridge0", 2);
             RemoveSegment("1221219565.Train Track Slope0", 2);
             RemoveSegment("1221219565.Train Track Elevated0", 2);
-            // Cylis' Tracks
+            // Rendered Train Tracks
             RemoveSegment("2223774659.Rendered Train Tracks_Data", 4);
             RemoveSegment("2223774659.Train Track Elevated0", 5);
             RemoveSegment("2223774659.Train Track Bridge0", 5);
@@ -223,10 +241,17 @@ namespace CatenaryReplacer
             RemoveSegment("2223774659.Train Oneway Track Bridge0", 5);
             RemoveSegment("2223774659.Train Oneway Track Slope0", 4);
             RemoveSegment("2223774659.Train Oneway Track Tunnel0", 4);
-            RemoveSegment("track_w_bypass_station.Wired Bypass Station_Data", 5);
-            RemoveSegment("track_w_bypass_station.Wired Bypass Station_Data", 6);
-            RemoveSegment("wiredstationtrack.Wired Station Track_Data", 3);
-            RemoveSegment("wiredestationtrack.Wired Elevated Station Track_Data", 4);
+            // Rendered Vanilla Train Tracks
+            RemoveSegment("2441462718.Rendered Vanilla Train Tracks_Data", 2);
+            RemoveSegment("2441462718.Train Track Elevated0", 2);
+            RemoveSegment("2441462718.Train Track Bridge0", 2);
+            RemoveSegment("2441462718.Train Track Slope0", 2);
+            RemoveSegment("2441462718.Train Track Tunnel0", 4);
+            RemoveSegment("2441462718.Rendered Van 1-way Train Track_Data", 2);
+            RemoveSegment("2441462718.Train Oneway Track Elevated0", 2);
+            RemoveSegment("2441462718.Train Oneway Track Bridge0", 2);
+            RemoveSegment("2441462718.Train Oneway Track Slope0", 2);
+            RemoveSegment("2441462718.Train Oneway Track Tunnel0", 3);
 
 
             //Nodes
@@ -238,29 +263,29 @@ namespace CatenaryReplacer
             RemoveNode("Train Track Elevated", 2);
             RemoveNode("Train Cargo Track Elevated", 3);
             //OneWay Tracks (Vanilla)
-            RemoveNode("Oneway Train Track", 3);
-            RemoveNode("Oneway Train Track", 6);
-            RemoveNode("Oneway Train Track", 7);
-            RemoveNode("Oneway Train Track", 10);
-            RemoveNode("Oneway Train Track", 11);
-            RemoveNode("Oneway Train Track", 13);
-            RemoveNode("Oneway Train Track Elevated", 2);
-            RemoveNode("Oneway Train Track Elevated", 6);
-            RemoveNode("Oneway Train Track Elevated", 7);
-            RemoveNode("Oneway Train Track Elevated", 10);
-            RemoveNode("Oneway Train Track Elevated", 11);
-            RemoveNode("Oneway Train Track Elevated", 13);
-            RemoveNode("Oneway Train Track Slope", 2);
-            RemoveNode("Oneway Train Track Slope", 7);
-            RemoveNode("Oneway Train Track Slope", 8);
-            RemoveNode("Oneway Train Track Slope", 11);
-            RemoveNode("Oneway Train Track Slope", 12);
-            RemoveNode("Oneway Train Track Bridge", 2);
-            RemoveNode("Oneway Train Track Bridge", 6);
-            RemoveNode("Oneway Train Track Bridge", 7);
-            RemoveNode("Oneway Train Track Bridge", 10);
-            RemoveNode("Oneway Train Track Bridge", 11);
-            RemoveNode("Oneway Train Track Bridge", 13);
+            RemoveNode("Train Oneway Track", 3);
+            RemoveNode("Train Oneway Track", 6);
+            RemoveNode("Train Oneway Track", 7);
+            RemoveNode("Train Oneway Track", 10);
+            RemoveNode("Train Oneway Track", 11);
+            RemoveNode("Train Oneway Track", 13);
+            RemoveNode("Train Oneway Track Elevated", 2);
+            RemoveNode("Train Oneway Track Elevated", 6);
+            RemoveNode("Train Oneway Track Elevated", 7);
+            RemoveNode("Train Oneway Track Elevated", 10);
+            RemoveNode("Train Oneway Track Elevated", 11);
+            RemoveNode("Train Oneway Track Elevated", 13);
+            RemoveNode("Train Oneway Track Slope", 2);
+            RemoveNode("Train Oneway Track Slope", 7);
+            RemoveNode("Train Oneway Track Slope", 8);
+            RemoveNode("Train Oneway Track Slope", 11);
+            RemoveNode("Train Oneway Track Slope", 12);
+            RemoveNode("Train Oneway Track Bridge", 2);
+            RemoveNode("Train Oneway Track Bridge", 6);
+            RemoveNode("Train Oneway Track Bridge", 7);
+            RemoveNode("Train Oneway Track Bridge", 10);
+            RemoveNode("Train Oneway Track Bridge", 11);
+            RemoveNode("Train Oneway Track Bridge", 13);
             //Extra Station Tracks (Mod)
             RemoveNode("Station Track Sunken", 3);
             RemoveNode("Train Station Track (C)", 3);
@@ -310,7 +335,7 @@ namespace CatenaryReplacer
             RemoveNode("1221219565.Train Track Bridge0", 2);
             RemoveNode("1221219565.Train Track Slope0", 2);
             RemoveNode("1221219565.Train Track Elevated0", 2);
-            // Cylis' Tracks
+            // Rendered Train Tracks
             RemoveNode("2223774659.Rendered Train Tracks_Data", 4);
             RemoveNode("2223774659.Train Track Elevated0", 6);
             RemoveNode("2223774659.Train Track Bridge0", 4);
@@ -328,16 +353,30 @@ namespace CatenaryReplacer
             RemoveNode("2223774659.Train Oneway Track Slope0", 8);
             RemoveNode("2223774659.Train Oneway Track Slope0", 9);
             RemoveNode("2223774659.Train Oneway Track Slope0", 10);
-            RemoveNode("2223774659.Train Oneway Track Tunnel0", 7);
-            RemoveNode("track_w_bypass_station.Wired Bypass Station_Data", 8);
-            RemoveNode("track_w_bypass_station.Wired Bypass Station_Data", 9);
-            RemoveNode("track_w_bypass_station.Wired Bypass Station_Data", 10);
-            RemoveNode("track_w_bypass_station.Wired Bypass Station_Data", 11);
-            RemoveNode("track_w_bypass_station.Wired Bypass Station_Data", 12);
-            RemoveNode("wiredstationtrack.Wired Station Track_Data", 5);
-            RemoveNode("wiredstationtrack.Wired Station Track_Data", 6);
-            RemoveNode("wiredestationtrack.Wired Elevated Station Track_Data", 6);
-            RemoveNode("wiredestationtrack.Wired Elevated Station Track_Data", 7);
+            RemoveNode("2223774659.Train Oneway Track Tunnel0", 8);
+            RemoveNode("2223774659.Train Oneway Track Tunnel0", 9);
+            RemoveNode("2223774659.Train Oneway Track Tunnel0", 10);
+            // Rendered Vanilla Train Tracks
+            RemoveNode("2441462718.Rendered Vanilla Train Tracks_Data", 3);
+            RemoveNode("2441462718.Train Track Elevated0", 2);
+            RemoveNode("2441462718.Train Track Bridge0", 2);
+            RemoveNode("2441462718.Train Track Slope0", 2);
+            RemoveNode("2441462718.Train Track Tunnel0", 3);
+            RemoveNode("2441462718.Rendered Van 1-way Train Track_Data", 3);
+            RemoveNode("2441462718.Rendered Van 1-way Train Track_Data", 6);
+            RemoveNode("2441462718.Rendered Van 1-way Train Track_Data", 7);
+            RemoveNode("2441462718.Train Oneway Track Elevated0", 3);
+            RemoveNode("2441462718.Train Oneway Track Elevated0", 6);
+            RemoveNode("2441462718.Train Oneway Track Elevated0", 7);
+            RemoveNode("2441462718.Train Oneway Track Bridge0", 3);
+            RemoveNode("2441462718.Train Oneway Track Bridge0", 6);
+            RemoveNode("2441462718.Train Oneway Track Bridge0", 7);
+            RemoveNode("2441462718.Train Oneway Track Slope0", 3);
+            RemoveNode("2441462718.Train Oneway Track Slope0", 6);
+            RemoveNode("2441462718.Train Oneway Track Slope0", 7);
+            RemoveNode("2441462718.Train Oneway Track Tunnel0", 5);
+            RemoveNode("2441462718.Train Oneway Track Tunnel0", 6);
+            RemoveNode("2441462718.Train Oneway Track Tunnel0", 7);
 
         }
 

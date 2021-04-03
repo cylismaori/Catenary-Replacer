@@ -5,7 +5,7 @@ namespace CatenaryReplacer
 {
     public class CatenaryReplacerMod : LoadingExtensionBase, IUserMod
     {
-        public string Name => "Catenary Replacer";
+        public string Name => "Catenary Replacer Updated";
 
         public string Description => "Replaces the catenaries on railroads with those of your choice";
 
