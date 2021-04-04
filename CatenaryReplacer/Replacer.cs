@@ -235,13 +235,13 @@ namespace CatenaryReplacer
             RemoveSegment("2223774659.Rendered Train Tracks_Data", 4);
             RemoveSegment("2223774659.Train Track Elevated0", 5);
             RemoveSegment("2223774659.Train Track Bridge0", 5);
-            RemoveSegment("2223774659.Train Track Slope0", 4);
-            RemoveSegment("2223774659.Train Track Tunnel0", 4);
+            RemoveSegment("2223774659.Train Track Slope0", 5);
+            RemoveSegment("2223774659.Train Track Tunnel0", 5);
             RemoveSegment("2223774659.Rendered One-way Train Tracks_Data", 4);
             RemoveSegment("2223774659.Train Oneway Track Elevated0", 5);
             RemoveSegment("2223774659.Train Oneway Track Bridge0", 5);
-            RemoveSegment("2223774659.Train Oneway Track Slope0", 4);
-            RemoveSegment("2223774659.Train Oneway Track Tunnel0", 4);
+            RemoveSegment("2223774659.Train Oneway Track Slope0", 5);
+            RemoveSegment("2223774659.Train Oneway Track Tunnel0", 5);
             // Rendered Vanilla Train Tracks
             RemoveSegment("2441462718.Rendered Vanilla Train Tracks_Data", 2);
             RemoveSegment("2441462718.Train Track Elevated0", 2);
@@ -339,8 +339,8 @@ namespace CatenaryReplacer
             RemoveNode("2223774659.Rendered Train Tracks_Data", 4);
             RemoveNode("2223774659.Train Track Elevated0", 6);
             RemoveNode("2223774659.Train Track Bridge0", 4);
-            RemoveNode("2223774659.Train Track Slope0", 5);
-            RemoveNode("2223774659.Train Track Tunnel0", 3);
+            RemoveNode("2223774659.Train Track Slope0", 6);
+            RemoveNode("2223774659.Train Track Tunnel0", 4);
             RemoveNode("2223774659.Rendered One-way Train Tracks_Data", 6);
             RemoveNode("2223774659.Rendered One-way Train Tracks_Data", 7);
             RemoveNode("2223774659.Rendered One-way Train Tracks_Data", 8);
@@ -350,9 +350,9 @@ namespace CatenaryReplacer
             RemoveNode("2223774659.Train Oneway Track Bridge0", 6);
             RemoveNode("2223774659.Train Oneway Track Bridge0", 7);
             RemoveNode("2223774659.Train Oneway Track Bridge0", 8);
-            RemoveNode("2223774659.Train Oneway Track Slope0", 8);
             RemoveNode("2223774659.Train Oneway Track Slope0", 9);
             RemoveNode("2223774659.Train Oneway Track Slope0", 10);
+            RemoveNode("2223774659.Train Oneway Track Slope0", 11);
             RemoveNode("2223774659.Train Oneway Track Tunnel0", 8);
             RemoveNode("2223774659.Train Oneway Track Tunnel0", 9);
             RemoveNode("2223774659.Train Oneway Track Tunnel0", 10);
