@@ -58,6 +58,9 @@ namespace CatenaryReplacer
                     SetReplacementPropNames(null, null);
                     RemoveWires();
                     break;
+                case CatenaryStyle.Vanilla:
+                    SetReplacementPropNames("RailwayPowerline", "RailwayPowerline Singular");
+                    break;
                 case CatenaryStyle.DutchTypeA:
                     SetReplacementPropNames("Catenary Type NL2A", "Catenary Type NL1A");
                     break;
@@ -175,8 +178,6 @@ namespace CatenaryReplacer
             ReplaceLaneProp("2441462718.Train Oneway Track Bridge0", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("2441462718.Train Oneway Track Slope0", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("2441462718.Train Oneway Track Tunnel0", "RailwayPowerline Singular", singleReplacement);
-
-
         }
 
         private void SetReplacementPropNames(string doubleReplacement, string singleReplacement)
@@ -252,7 +253,6 @@ namespace CatenaryReplacer
             RemoveSegment("2441462718.Train Oneway Track Bridge0", 2);
             RemoveSegment("2441462718.Train Oneway Track Slope0", 2);
             RemoveSegment("2441462718.Train Oneway Track Tunnel0", 3);
-
 
             //Nodes
 
@@ -377,7 +377,6 @@ namespace CatenaryReplacer
             RemoveNode("2441462718.Train Oneway Track Tunnel0", 5);
             RemoveNode("2441462718.Train Oneway Track Tunnel0", 6);
             RemoveNode("2441462718.Train Oneway Track Tunnel0", 7);
-
         }
 
         private void RemoveSegment(string net, int segment)
