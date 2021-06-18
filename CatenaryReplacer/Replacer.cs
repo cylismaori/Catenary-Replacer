@@ -124,12 +124,33 @@ namespace CatenaryReplacer
             ReplaceLaneProp("ccp8-eurorail1 Elevated", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("ccp8-eurorail2 Elevated", "RailwayPowerline Singular", singleReplacement);
             ReplaceLaneProp("ccp8-hstrail Elevated", "RailwayPowerline", doubleReplacement);
+            //Train Stations Content Creator Pack
+            ReplaceLaneProp("Train Station Track Elevated", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Station Track Ground Island", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Train Station Track Ground Island", "Railway Powerline", doubleReplacement);
+            ReplaceLaneProp("Train Station Track Elevated Island", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Train Station Track Elevated Island", "Railway Powerline", doubleReplacement);
+            ReplaceLaneProp("Train Station Track Ground Dual Island", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Train Station Track Ground Dual Island", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("Train Station Track Elevated Dual Island", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("Train Station Track Elevated Dual Island", "RailwayPowerline", doubleReplacement);
             //Extra Station Tracks (Mod)
             ReplaceLaneProp("Train Station Track (C)", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Station Track Elevated Narrow (C)", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Station Track Eleva", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Station Track Elevated (C)", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("Station Track Elevated Narrow", "RailwayPowerline", doubleReplacement);
+            // Extra Station Tracks (Assets)
+            ReplaceLaneProp("1194290640.Wide Train Station Track_Data", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("1194290640.Wide Train Station Track_Data", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("1194290640.ElevatedIslandPlatStationTrack_Data", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("1194290640.ElevatedIslandPlatStationTrack_Data", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("1698282173.DualIslandStationTrack_Ground_Data", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("1698282173.DualIslandStationTrack_Ground_Data", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("1698282173.DualIslandStationTrack_Elevated_Data", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("1698282173.DualIslandStationTrack_Elevated_Data", "RailwayPowerline", doubleReplacement);
+            ReplaceLaneProp("1731659180.ElevatedSingleTrackStationTrack_Data", "RailwayPowerline Singular", singleReplacement);
+            ReplaceLaneProp("1731659180.GroundSingleTrackStationTrack_Data", "RailwayPowerline Singular", singleReplacement);
             //Better Rail by Jerenable
             ReplaceLaneProp("1178802767.Better Vanilla Rail_Data", "RailwayPowerline", doubleReplacement);
             ReplaceLaneProp("1178802767.Train Track Bridge0", "RailwayPowerline", doubleReplacement);
@@ -217,6 +238,12 @@ namespace CatenaryReplacer
             RemoveSegment("ccp8-eurorail1 Elevated", 2);
             RemoveSegment("ccp8-eurorail2 Elevated", 2);
             RemoveSegment("ccp8-hstrail Elevated", 2);
+            //Train Stations Content Creator Pack
+            RemoveSegment("Train Station Track Elevated", 2);
+            RemoveSegment("Train Station Track Ground Island", 2);
+            RemoveSegment("Train Station Track Elevated Island", 2);
+            RemoveSegment("Train Station Track Ground Dual Island", 2);
+            RemoveSegment("Train Station Track Elevated Dual Island", 2);
             //Extra Station Tracks (Mod)
             RemoveSegment("Train Station Track (C)", 2);
             RemoveSegment("Train Station Track", 2);
@@ -224,6 +251,13 @@ namespace CatenaryReplacer
             RemoveSegment("Station Track Eleva", 2);
             RemoveSegment("Station Track Elevated (C)", 2);
             RemoveSegment("Station Track Elevated Narrow", 2);
+            //Extra Station Tracks (Assets)
+            RemoveSegment("1194290640.Wide Train Station Track_Data", 2);
+            RemoveSegment("1194290640.ElevatedIslandPlatStationTrack_Data", 2);
+            RemoveSegment("1698282173.DualIslandStationTrack_Ground_Data", 1);
+            RemoveSegment("1698282173.DualIslandStationTrack_Elevated_Data", 2);
+            RemoveSegment("1731659180.ElevatedSingleTrackStationTrack_Data", 3);
+            RemoveSegment("1731659180.GroundSingleTrackStationTrack_Data", 2);
             //OneWay Tracks (Mod)
             RemoveSegment("Rail1L", 2);
             RemoveSegment("Rail1L Slope", 2);
@@ -313,6 +347,17 @@ namespace CatenaryReplacer
             RemoveNode("ccp8-eurorail2 Elevated", 5);
             RemoveNode("ccp8-eurorail2 Elevated", 6);
             RemoveNode("ccp8-hstrail Elevated", 2);
+            //Train Stations Content Creator's Pack
+            RemoveNode("Train Station Track Elevated", 3);
+            RemoveNode("Train Station Track Elevated", 5);
+            RemoveNode("Train Station Track Ground Island", 2);
+            RemoveNode("Train Station Track Ground Island", 4);
+            RemoveNode("Train Station Track Elevated Island", 2);
+            RemoveNode("Train Station Track Elevated Island", 4);
+            RemoveNode("Train Station Track Ground Dual Island", 2);
+            RemoveNode("Train Station Track Ground Dual Island", 4);
+            RemoveNode("Train Station Track Elevated Dual Island", 2);
+            RemoveNode("Train Station Track Elevated Dual Island", 4);
             //Extra Station Tracks (Mod)
             RemoveNode("Station Track Sunken", 3);
             RemoveNode("Train Station Track (C)", 3);
@@ -321,6 +366,20 @@ namespace CatenaryReplacer
             RemoveNode("Station Track Eleva", 3);
             RemoveNode("Station Track Elevated (C)", 3);
             RemoveNode("Station Track Elevated Narrow", 3);
+            //Extra Station Tracks (Assets)
+            RemoveNode("1194290640.Wide Train Station Track_Data", 3);
+            RemoveNode("1194290640.Wide Train Station Track_Data", 5);
+            RemoveNode("1194290640.Wide Train Station Track_Data", 6);
+            RemoveNode("1194290640.ElevatedIslandPlatStationTrack_Data", 2);
+            RemoveNode("1194290640.ElevatedIslandPlatStationTrack_Data", 5);
+            RemoveNode("1698282173.DualIslandStationTrack_Ground_Data", 3);
+            RemoveNode("1698282173.DualIslandStationTrack_Ground_Data", 4);
+            RemoveNode("1698282173.DualIslandStationTrack_Elevated_Data", 2);
+            RemoveNode("1698282173.DualIslandStationTrack_Elevated_Data", 5);
+            RemoveNode("1731659180.ElevatedSingleTrackStationTrack_Data", 2);
+            RemoveNode("1731659180.ElevatedSingleTrackStationTrack_Data", 5);
+            RemoveNode("1731659180.GroundSingleTrackStationTrack_Data", 3);
+            RemoveNode("1731659180.GroundSingleTrackStationTrack_Data", 5);
             //OneWay Tracks (Mod)
             RemoveNode("Rail1L", 3);
             RemoveNode("Rail1L", 6);
@@ -509,6 +568,7 @@ namespace CatenaryReplacer
 
         private void ReplaceLaneProp(string net, string original, string replacement)
         {
+            float offset;
             var netInfo = PrefabCollection<NetInfo>.FindLoaded(net);
             if (netInfo == null)
             {
@@ -522,7 +582,24 @@ namespace CatenaryReplacer
                 Debug.LogWarning("The name '" + replacement + "' you entered does not belong to a loaded prop!");
                 return;
             }
-
+            switch (replacement)
+            {
+                case "2444511901.Catenary Type NL1A_Data":
+                case "2444511901.Catenary Type NL1B_Data":
+                case "2444511901.Catenary Type DE1A_Data":
+                    offset = 4.3f;
+                    break;
+                case "2444511901.Catenary Type PRR 1A_Data":
+                    offset = 4.5f;
+                    break;
+                case "2444511901.Catenary Type JP1A_Data":
+                case "2444511901.Catenary Type EXPO1A_Data":
+                    offset = 4.6f;
+                    break;
+                default:
+                    offset = 0f;
+                    break;
+            }
             if (netInfo.m_lanes != null)
             {
                 for (int laneIndex = 0; laneIndex < netInfo.m_lanes.Length; laneIndex++)
@@ -550,28 +627,10 @@ namespace CatenaryReplacer
 
                                 laneProp.m_prop = replacementProp;
                                 laneProp.m_finalProp = replacementProp;
-                                if (original == "RailwayPowerline Singular" && replacement != original)
+                                if (offset != 0f)
                                 {
-                                    switch (laneProp.m_position.x)
-                                    {
-                                        case -8.3f:
-                                            laneProp.m_position.x = -3.7f;
-                                            break;
-                                        case -0.3f:
-                                            laneProp.m_position.x = 4.4f;
-                                            break;
-                                        case 0.3f:
-                                            laneProp.m_position.x = -4.4f;
-                                            break;
-                                        case 2f:
-                                            laneProp.m_position.x = -2.5f;
-                                            break;
-                                        case 8.3f:
-                                            laneProp.m_position.x = 3.7f;
-                                            break;
-                                    }
+                                    laneProp.m_position.x = laneProp.m_angle == 180? laneProp.m_position.x + offset : laneProp.m_position.x - offset;
                                 }
-                                //laneProp.m_angle = laneProp.m_angle > 180f ? laneProp.m_angle - 180f : laneProp.m_angle + 180f;
                             }
                         }
                     }
